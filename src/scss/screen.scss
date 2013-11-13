@@ -6,6 +6,7 @@
 @import "compass/css3/border-radius";
 
 
+
 /* ==========================================================================
    1. Settings - Settings used by Susy & Gonzague
    ========================================================================== */
@@ -23,6 +24,8 @@ $baseline: 1.5em;
 $body-color: #222;
 $subtle-color: #ddd;
 $primary-color: #9178C4;
+
+
 
 /* ==========================================================================
    2. Icons - Sets up the icon font and respective classes
@@ -73,6 +76,8 @@ $primary-color: #9178C4;
 .icon-facebook:before {
     content: "\e004";
 }
+
+
 
 /* ==========================================================================
    3. Mixins - Common mixins
@@ -146,6 +151,7 @@ p {
 hr {
         border-color: $subtle-color;
 }
+
 
 
 /* ==========================================================================
