@@ -1,0 +1,40 @@
+{{!< default}}
+
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+<main class="content" role="main">
+
+    <article class="{{post_class}}">
+
+        {{#post}}
+
+        <h1 class="post-title text-center">{{{title}}}</h1>
+
+        <span class="post-meta block-center text-center"><time datetime="{{date format="YYYY-MM-DD"}}">{{date format='DD MMM YYYY'}}</time></span>
+
+        <section class="post-content">
+            {{content}}
+        </section>
+
+        <footer class="post-footer">
+
+            {{#if author}}
+                <section class="author">
+                    <span class="author-image">
+                        <span class="block-center" style="background-image: url('{{author.image}}')"></span>
+                    </span>
+                    <span class="author-bio">
+                        <h4>{{author.name}}</h4>
+                        <p>{{author.bio}}</p>
+                    </span>
+                </section>
+            {{/if}}
+
+        </footer>
+
+        {{/post}}
+
+    </article>
+
+</main>

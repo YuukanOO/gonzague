@@ -1,0 +1,281 @@
+/* ==========================================================================
+   0. Includes - Ground zero
+   ========================================================================== */
+
+@import "susy";
+@import "compass/css3/border-radius";
+
+
+/* ==========================================================================
+   1. Settings - Settings used by Susy & Gonzague
+   ========================================================================== */
+
+// Susy settings
+$total-columns  : 12;
+$column-width   : 3em;
+$gutter-width   : 1em;
+$grid-padding   : $gutter-width;
+
+// Font related settings
+$baseline: 1.5em;
+
+// Color related settings
+$body-color: #222;
+$subtle-color: #ddd;
+$primary-color: #9178C4;
+
+/* ==========================================================================
+   2. Icons - Sets up the icon font and respective classes
+   ========================================================================== */
+
+@font-face {
+    font-family: 'icons';
+    src:url('../fonts/icons.eot');
+    src:url('../fonts/icons.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/icons.woff') format('woff'),
+        url('../fonts/icons.ttf') format('truetype'),
+        url('../fonts/icons.svg#icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.icon-ghost:before, 
+.icon-feed:before, 
+.icon-twitter:before, 
+.icon-google-plus:before, 
+.icon-facebook:before {
+	font-family: 'icons';
+	font-size: 0.7em;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+	margin-right: 0.2em;
+    line-height: 1;
+    speak: none;
+    text-decoration: none;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+}
+
+.icon-ghost:before {
+    content: "\e000";
+}
+.icon-feed:before {
+    content: "\e001";
+}
+.icon-twitter:before {
+    content: "\e002";
+    font-size: 1.1em;
+}
+.icon-google-plus:before {
+    content: "\e003";
+}
+.icon-facebook:before {
+    content: "\e004";
+}
+
+/* ==========================================================================
+   3. Mixins - Common mixins
+   ========================================================================== */
+
+@mixin paragraph-font-properties {
+        font-family: "Open Sans", Arial, sans-serif;
+        line-height: $baseline;
+}
+
+
+
+/* ==========================================================================
+   4. Utilities - Common styles
+   ========================================================================== */
+
+.hidden {
+        display: none;
+}
+
+.text-center {
+        text-align: center;
+}
+
+.block-center {
+        display: block;
+        margin: 0 auto;
+}
+
+
+
+/* ==========================================================================
+   5. Global - Global styles
+   ========================================================================== */
+
+body {
+        @include paragraph-font-properties;
+
+        color: $body-color;
+}
+
+a {
+        &:link, &:visited {
+                color: $primary-color;
+        }
+
+        &:hover {
+                color: darken($primary-color, 15%);
+        }
+}
+
+small,
+.small {
+        font-size: 0.9em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+        margin: $baseline / 2 0;
+}
+
+p {
+        @include paragraph-font-properties;
+        margin-bottom: $baseline;
+}
+
+hr {
+        border-color: $subtle-color;
+}
+
+
+/* ==========================================================================
+   6. General - The main styles for the the theme
+   ========================================================================== */
+
+body > header,
+body > main,
+body > footer {
+        @include container;
+        //@include susy-grid-background;
+}
+
+nav {
+        @extend small;
+        @extend .text-center;
+
+        margin-top: $baseline;
+
+        & > * {
+                margin: 0 auto;
+        }
+}
+
+.content {
+        margin: 0 auto;
+
+        & > * {
+                @include span-columns(10);
+                @include squish(1,1);
+        }
+
+        & > article {
+                border-top: 1px solid $subtle-color;
+
+                &:first-child {
+                        border-top: none;
+                }
+        }
+
+        article + article {
+                margin-top: $baseline;
+
+                & > header {
+                        margin-top: $baseline + 1em;
+                }
+        }
+
+}
+
+#site-header {
+        border-bottom: 1px solid $subtle-color;
+        margin-bottom: $baseline;
+
+        #site-logo {
+                margin: $baseline 0;
+        }
+
+}
+
+#site-footer {
+        color: darken($subtle-color, 25%);
+        margin: $baseline auto;
+
+        & a {
+
+                &:link, &:visited {
+                        color: darken($subtle-color, 40%);
+                        font-weight: bold;
+                        text-decoration: none;
+                }
+
+                &:hover {
+                        color: darken($subtle-color, 60%);
+                }
+
+        }
+}
+
+.post-title {
+        color: $primary-color;
+
+        & > a {
+                text-decoration: none;
+        }
+
+}
+
+.post-meta {
+        color: darken($subtle-color, 25%);
+}
+
+.post-footer {
+        margin: $baseline * 2 0 $baseline 0;
+}
+
+.author {
+        @include container;
+
+        border-top: 1px solid $subtle-color;
+        border-bottom: 1px solid $subtle-color;
+
+        & > * {
+                margin: $baseline 0;
+        }
+
+        .author-bio {
+                @include span-columns(9 omega);
+
+                & > h4 {
+                        margin: 0;
+                }
+
+                & > p {
+                        @extend small;
+                }
+
+        }
+
+        .author-image {
+                @include span-columns(3);
+
+                & > span {
+                        @include border-radius(100%);
+
+                        background-size: cover;
+                        background-position: center center;
+                        height: 100px;
+                        width: 100px;
+                }
+        }
+
+}
