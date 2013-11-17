@@ -148,6 +148,12 @@ p {
         margin-bottom: $baseline;
 }
 
+blockquote {
+    color: darken($subtle-color, 40%);
+    font-size: 1.75em;
+    font-style: italic;
+}
+
 hr {
         border-color: $subtle-color;
 }
@@ -190,8 +196,7 @@ nav {
         margin: 0 auto;
 
         & > * {
-                @include span-columns(10);
-                @include squish(1,1);
+                @include span-columns(12);
         }
 
         & > article {
@@ -269,10 +274,10 @@ nav {
         }
 
         .author-bio {
-                @include span-columns(9 omega);
 
                 & > h4 {
                         margin: 0;
+                        text-align: center;
                 }
 
                 & > p {
@@ -282,16 +287,53 @@ nav {
         }
 
         .author-image {
-                @include span-columns(3);
-
                 & > span {
                         @include border-radius(100%);
 
                         background-size: cover;
                         background-position: center center;
                         height: 100px;
+                        margin-bottom: $baseline;
+                        margin-top: $baseline;
                         width: 100px;
                 }
         }
+
+}
+
+
+
+/* ==========================================================================
+   7. Responsive - Responsive styles
+   ========================================================================== */
+
+@include at-breakpoint(35em 12) {
+
+    .content {
+        margin: 0 auto;
+
+        & > * {
+                @include span-columns(10);
+                @include squish(1,1);
+        }
+    }
+
+    .author {
+
+        .author-bio {
+            @include span-columns(9 omega);
+
+            & > h4 {
+                text-align: left;
+            }
+        }
+
+        .author-image {
+            @include span-columns(3);
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+
+    }
 
 }
