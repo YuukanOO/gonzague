@@ -5,5 +5,5 @@ Gonzague (work in progress) is a tiny Ghost theme written using the SASS preproc
 Just drop or clone the gonzague folder/repo into your Ghost content/themes folder, restart ghost and choose gonzague in the configuration page of your Ghost backend!
 
 ## TODO:
-- Make it responsive
-- Some styles are missing (img, blockquotes, ...)
+- Make img responsive & do img style btw
+- Include normalize.css
