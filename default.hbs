@@ -23,14 +23,16 @@
 </head>
 <body class="{{body_class}}">
 
-    <header id="site-header">
-        <a id="site-logo" class="block-center text-center" href="{{@blog.url}}">
-            {{#if @blog.logo}}
-                <img src="{{@blog.logo}}" alt="{{@blog.title}}" />
-            {{else}}
-                {{@blog.title}}
-            {{/if}}
-        </a>
+    <header id="site-header" {{#if @blog.cover}}class="with-cover" style="background-image: url({{@blog.cover}})"{{/if}}>
+        <div id="site-header-inner">
+            <a id="site-logo" class="block-center text-center {{#if @blog.logo}}has-logo{{/if}}" href="{{@blog.url}}">
+                {{#if @blog.logo}}
+                    <img src="{{@blog.logo}}" alt="{{@blog.title}}" />
+                {{else}}
+                    {{@blog.title}}
+                {{/if}}
+            </a>
+        </div>
     </header>
 
     {{! Everything else gets inserted here }}

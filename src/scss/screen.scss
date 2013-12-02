@@ -165,7 +165,6 @@ hr {
    6. General - The main styles for the the theme
    ========================================================================== */
 
-body > header,
 body > main,
 body > footer {
         @include container;
@@ -225,13 +224,41 @@ nav {
 }
 
 #site-header {
-        border-bottom: 1px solid $subtle-color;
-        margin-bottom: $baseline;
+        color: #fff;
+        padding: $baseline 0;
+
+        a,
+        a:link,
+        a:visited {
+            color: #fff;
+            font-size: $baseline;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        #site-header-inner {
+            border-bottom: 1px solid $subtle-color;
+            @include container;
+        }
 
         #site-logo {
                 margin: $baseline 0;
+
+                &.has-logo {
+                    margin-top: 0;
+                    margin-bottom: 1.2em;
+                }
         }
 
+        &.with-cover {
+            background: transparent no-repeat center center;
+            background-size: cover;
+            margin-bottom: $baseline;
+
+            #site-header-inner {
+                border-bottom: 0;
+            }
+        }
 }
 
 #site-footer {
