@@ -14,9 +14,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     {{! Styles'n'Scripts }}
-    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic|Open+Sans:700,400" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/github.css">
+    <link rel="stylesheet" type="text/css" href="{{asset "css/github.css"}}">
 
     {{! Ghost outputs important style and meta data with this tag }}
     {{ghost_head}}
@@ -48,7 +48,7 @@
     {{ghost_foot}}
 
     {{! Let's load the highlight library for code syntax highlighting }}
-    <script src="/assets/js/highlight.pack.js"></script>
+    <script src="{{asset "js/highlight.pack.js"}}"></script>
     <script>hljs.initHighlightingOnLoad();</script>
 
 </body>
