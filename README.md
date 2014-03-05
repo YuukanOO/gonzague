@@ -6,7 +6,7 @@ Gonzague is a tiny [Ghost](http://ghost.org) theme written using the [SASS](http
 
 **Without cover**
 
-![Without cover](screen2.jpg "Gonzague without cover")
+![Without cover](screen2.png "Gonzague without cover")
 
 **With cover**
 
